@@ -150,6 +150,7 @@ a, button, [role="button"] { transition: color var(--transition-interactive), ba
 .btn-secondary:hover { border-color: color-mix(in srgb, var(--color-primary) 30%, transparent); color: var(--color-primary); }
 .hero-visual { padding: var(--space-3); }
 .hero-card { aspect-ratio: 5/3.7; border-radius: calc(var(--radius-xl) + 4px); overflow: hidden; position: relative; background: linear-gradient(145deg, color-mix(in srgb, var(--color-primary) 22%, var(--color-surface)), color-mix(in srgb, var(--color-secondary) 18%, var(--color-surface-2))); border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); box-shadow: var(--shadow-lg); }
+.hero-lab-image { width: 100%; height: 100%; object-fit: contain; }
 .lab-photo-placeholder, .photo-placeholder, .logo-placeholder { width: 100%; height: 100%; background: radial-gradient(circle at 20% 20%, color-mix(in srgb, var(--color-primary) 25%, transparent), transparent 30%), radial-gradient(circle at 80% 30%, color-mix(in srgb, var(--color-secondary) 28%, transparent), transparent 28%), linear-gradient(135deg, color-mix(in srgb, var(--color-surface-offset) 50%, var(--color-surface-2)), color-mix(in srgb, var(--color-primary-highlight) 65%, var(--color-surface))); display: grid; place-items: center; color: var(--color-primary); }
 .placeholder-inner { text-align: center; padding: var(--space-6); }
 .placeholder-inner svg { width: 88px; height: 88px; margin: 0 auto var(--space-4); opacity: .85; }
@@ -161,15 +162,44 @@ a, button, [role="button"] { transition: color var(--transition-interactive), ba
 .stat-card strong { display: block; font-size: var(--text-xl); font-family: var(--font-display); color: var(--color-primary); }
 .stat-card span { color: var(--color-text-muted); font-size: var(--text-sm); }
 .card-grid { grid-template-columns: repeat(3, 1fr); }
+.news-section { display: grid; grid-template-columns: minmax(0, 1fr); }
 .card { padding: var(--space-5); }
 .card h3 { font-size: var(--text-lg); margin-bottom: var(--space-3); }
 .card p, .card li { color: var(--color-text-muted); font-size: var(--text-sm); }
 .card ul { list-style: none; display: grid; gap: var(--space-2); margin-top: var(--space-4); }
 .card ul li::before { content: '•'; color: var(--color-secondary); margin-right: .55rem; }
+.news-card {
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--color-primary) 14%, var(--color-surface-2)), var(--color-surface));
+  border: 1px solid color-mix(in srgb, var(--color-primary) 32%, transparent);
+  box-shadow: 0 14px 34px rgba(18, 59, 109, 0.14);
+}
+.news-card h3 {
+  color: var(--color-primary);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-4);
+}
+.news-scroll {
+  overflow-y: auto;
+  padding-right: var(--space-2);
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-primary) 55%, transparent) transparent;
+}
+.news-scroll ul { margin-top: 0; }
+.news-scroll li {
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--color-surface-2) 82%, var(--color-primary-highlight));
+  border: 1px solid color-mix(in srgb, var(--color-primary) 12%, transparent);
+}
+.news-scroll li + li { margin-top: var(--space-3); }
 
 .split-layout { display: grid; grid-template-columns: minmax(250px, .95fr) minmax(0, 1.4fr); gap: clamp(var(--space-6), 4vw, var(--space-12)); align-items: start; }
 .profile-card, .sidebar-card { padding: var(--space-5); position: sticky; top: 110px; }
 .profile-photo { aspect-ratio: 4/4.6; border-radius: calc(var(--radius-xl) - var(--space-2)); overflow: hidden; margin-bottom: var(--space-4); }
+.principal-photo { width: 80%; margin-inline: auto; }
 .meta-list { list-style: none; display: grid; gap: var(--space-3); color: var(--color-text-muted); font-size: var(--text-sm); }
 .meta-list strong { color: var(--color-text); }
 .content-stack { display: grid; gap: var(--space-4); }
@@ -186,21 +216,61 @@ a, button, [role="button"] { transition: color var(--transition-interactive), ba
 .bullet-list li { position: relative; padding-left: 1.1rem; color: var(--color-text-muted); }
 .bullet-list li::before { content: ''; position: absolute; left: 0; top: .7rem; width: 7px; height: 7px; border-radius: 50%; background: var(--color-secondary); }
 
-.member-grid { grid-template-columns: repeat(3, minmax(0, 320px)); gap: var(--space-5); justify-content: start; }
-.member-card { overflow: hidden; width: 100%; max-width: 320px; } /* Whole card scaled like the reference profile card */
-.member-photo { aspect-ratio: 4/4.6; } /* Photo block proportion matched to the reference card */
-.member-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 16%; } /* Photo fills the card width and shifts crop much farther upward */
-.member-photo img.member-photo-ishtiaq,
-.member-photo img.member-photo-ankit-rana,
-.member-photo img.member-photo-pooja,
-.member-photo img.member-photo-abhay,
-.member-photo img.member-photo-nakul,
-.member-photo img.member-photo-saket,
-.member-photo img.member-photo-idris,
-.member-photo img.member-photo-yash,
-.member-photo img.member-photo-gautam { object-position: center 16%; } /* Adjust each class individually when a single photo needs a different crop */
-.member-photo img.member-photo-sachin { object-position: 44% 56%; } /* Shift further downward while keeping Sachin horizontally centered */
-.member-photo img.member-photo-jay { object-position: 54% 56%; } /* Shift further downward while keeping Jay horizontally centered */
+/* Group members page: two switchable layouts
+   1. Active now: body.group-layout-compact
+   2. Earlier larger-card version: body.group-layout-classic */
+
+.member-grid { gap: var(--space-5); justify-content: start; }
+.member-card { overflow: hidden; width: 100%; }
+.member-photo img { width: 100%; display: block; }
+
+/* Compact layout: keeps photos clearer by showing them in original proportions rather than strong portrait cropping */
+body.group-layout-compact .member-grid {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 220px));
+}
+body.group-layout-compact .member-card {
+  max-width: 220px;
+}
+body.group-layout-compact .member-photo {
+  aspect-ratio: 3 / 2;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--color-surface-offset) 54%, var(--color-surface-2));
+  border-bottom: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+}
+body.group-layout-compact .member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Classic layout: earlier larger portrait-card version */
+body.group-layout-classic .member-grid {
+  grid-template-columns: repeat(3, minmax(0, 320px));
+}
+body.group-layout-classic .member-card {
+  max-width: 320px;
+}
+body.group-layout-classic .member-photo {
+  aspect-ratio: 4 / 4.6;
+}
+body.group-layout-classic .member-photo img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+body.group-layout-classic .member-photo img.member-photo-ishtiaq,
+body.group-layout-classic .member-photo img.member-photo-ankit-rana,
+body.group-layout-classic .member-photo img.member-photo-pooja,
+body.group-layout-classic .member-photo img.member-photo-abhay,
+body.group-layout-classic .member-photo img.member-photo-nakul,
+body.group-layout-classic .member-photo img.member-photo-saket,
+body.group-layout-classic .member-photo img.member-photo-idris,
+body.group-layout-classic .member-photo img.member-photo-yash,
+body.group-layout-classic .member-photo img.member-photo-gautam { object-position: center 16%; }
+body.group-layout-classic .member-photo img.member-photo-sachin { object-position: 44% 56%; }
+body.group-layout-classic .member-photo img.member-photo-jay { object-position: 54% 56%; }
 .member-body { padding: var(--space-4); } /* Content block sized with the card, not compressed */
 .member-body h3 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
 .role { color: var(--color-primary); font-size: var(--text-sm); font-weight: 700; margin-bottom: var(--space-3); }
@@ -209,6 +279,40 @@ a, button, [role="button"] { transition: color var(--transition-interactive), ba
 
 .pub-list, .instrument-list, .topic-list { display: grid; gap: var(--space-4); }
 .pub-item, .instrument-item, .topic-item, .collab-item, .resource-item, .achievement-item { padding: var(--space-4); }
+.instrument-showcase {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  padding: var(--space-5);
+  align-items: start;
+}
+.instrument-photo-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 180px));
+  gap: var(--space-3);
+  align-items: start;
+}
+.instrument-photo-frame {
+  min-height: 120px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+  background: color-mix(in srgb, var(--color-surface-offset) 50%, var(--color-surface-2));
+  aspect-ratio: 4 / 3;
+}
+.instrument-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.instrument-content {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  width: 100%;
+}
+.instrument-content h2 { font-size: var(--text-xl); }
 .pub-meta, .item-meta { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-3); color: var(--color-text-muted); font-size: var(--text-xs); }
 .inline-link { color: var(--color-primary); font-weight: 700; }
 .inline-link:hover { color: var(--color-secondary); }
@@ -229,6 +333,7 @@ a, button, [role="button"] { transition: color var(--transition-interactive), ba
 .page-hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: var(--space-8); align-items: center; }
 .masthead-card { min-height: 180px; padding: var(--space-3); }
 .simple-logo-box { width: min(100%, 180px); aspect-ratio: 1; margin: auto; border-radius: calc(var(--radius-xl) + 2px); background: linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 14%, var(--color-surface)), color-mix(in srgb, var(--color-secondary) 16%, var(--color-surface-2))); display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent); }
+.university-logo-image { width: 100%; height: 100%; object-fit: contain; padding: var(--space-3); }
 
 @media (max-width: 1040px) {
   .hero-grid, .page-hero-grid, .split-layout, .footer-grid { grid-template-columns: 1fr; }

@@ -7,12 +7,15 @@
   <title>NSPL | Group Members</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="group-layout-compact">
+  <!-- Switch layouts by changing the body class:
+       Active now: class="group-layout-compact"
+       Alternate earlier layout: class="group-layout-classic" -->
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="site-shell">
     <header class="site-header">
       <div class="container-wide header-row">
-        <a class="brand" href="./home.html" aria-label="Nuclear Structure Physics Laboratory home">
+        <a class="brand" href="./index.html" aria-label="Nuclear Structure Physics Laboratory home">
           <div class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 64 64" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5">
               <circle cx="32" cy="32" r="8"></circle>
@@ -27,13 +30,13 @@
         </a>
         <div class="nav-wrap">
           <nav class="site-nav" data-site-nav aria-label="Primary navigation">
-            <a href="./home.html" >Home</a>
+            <a href="./index.html" >Home</a>
             <a href="./principal-investigator.html" >Principal Investigator</a>
             <a href="./group-members.html" aria-current="page">Group Members</a>
             <a href="./publications.html" >Publications</a>
             <a href="./laboratory.html" >Laboratory</a>
             <a href="./research.html" >Research</a>
-            <a href="./collaborations.html" >Collaborations</a>
+            <!-- <a href="./collaborations.html" >Collaborations</a> -->
           </nav>
           <button class="menu-toggle" type="button" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -71,13 +74,30 @@
 <section class="section-tight">
   <div class="container">
     <h2 class="page-title" style="font-size: var(--text-xl); margin-bottom: var(--space-6);">Past Members</h2>
-    <div class="member-grid content-visible">
-      <article class="surface member-card"><div class="member-photo"><img class="member-photo-abhay" src="images/ankit.jpg" alt="Member 06"></div><div class="member-body"><h3>Abhay Singh</h3><p class="role">B.Sc. Thesis</p><ul class="small-list"><li><strong>Qualification:</strong> 12th </li><li><strong>Research topic:</strong> Nuclear structure investigations in Cd and Pd isotopes</li><li><strong>Email:</strong> as142@snu.edu.in</li></ul></div></article>
-      <article class="surface member-card"><div class="member-photo"><img class="member-photo-nakul" src="images/ankit.jpg" alt="Member 07"></div><div class="member-body"><h3>Nakul B. </h3><p class="role">O.U.R.</p><ul class="small-list"><li><strong>Qualification:</strong> 12th</li><li><strong>Research topic:</strong> Characterisation of archeological samples through X-Ray Fluoroscence</li><li><strong>Email:</strong> nb294@snu.edu.in</li></ul></div></article>
-      <article class="surface member-card"><div class="member-photo"><img class="member-photo-saket" src="images/ankit.jpg" alt="Member 07"></div><div class="member-body"><h3>Dr. Saket Suman</h3><p class="role">Former Research Scholar</p><ul class="small-list"><li><strong>Qualification:</strong> Ph.D.</li><li><strong>Current position:</strong> Post Doctoral Fellow at University of Naples Federico II</li></ul></div></article>
-      <article class="surface member-card"><div class="member-photo"><img class="member-photo-idris" src="images/idris.jpg" alt="Member 07"></div><div class="member-body"><h3> Idris Khorakiwala</h3><p class="role">Former B.Sc. Thesis researcher</p><ul class="small-list"><li><strong>Qualification:</strong> B.Sc.</li><li><strong>Current position:</strong> Ph.D. Scholar in Florida State University</li></ul></div></article>
-      <article class="surface member-card"><div class="member-photo"><img class="member-photo-yash" src="images/yash.jpg" alt="Member 07"></div><div class="member-body"><h3>Yash Shah</h3><p class="role">Former B.Sc. Thesis researcher</p><ul class="small-list"><li><strong>Qualification:</strong> B.Sc.</li><li><strong>Current position:</strong> Ph.D. Scholar in Florida State University</li></ul></div></article>
-      <article class="surface member-card"><div class="member-photo"><img class="member-photo-gautam" src="images/gautam.jpg" alt="Member 07"></div><div class="member-body"><h3>Gautam Kavali</h3><p class="role">Former O.U.R.</p><ul class="small-list"><li><strong>Qualification:</strong> 12th</li><li><strong>Current position:</strong> B.Sc. student</li></ul></div></article>
+    <div class="content-stack">
+      <div>
+        <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-4);">Post Doctoral Fellow</h3>
+        <div class="member-grid content-visible">
+          <article class="surface member-card"><div class="member-photo"><img class="member-photo-saket" src="images/ankit.jpg" alt="Dr. Saket Suman"></div><div class="member-body"><h3>Dr. Saket Suman</h3><p class="role">Former Post Doctoral Fellow</p><ul class="small-list"><li><strong>Qualification:</strong> Ph.D.</li><li><strong>Current position:</strong> Post Doctoral Fellow at University of Naples Federico II</li></ul></div></article>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-4);">B.Sc. Thesis Students</h3>
+        <div class="member-grid content-visible">
+          <article class="surface member-card"><div class="member-photo"><img class="member-photo-abhay" src="images/ankit.jpg" alt="Abhay Singh"></div><div class="member-body"><h3>Abhay Singh</h3><p class="role">B.Sc. Thesis</p><ul class="small-list"><li><strong>Qualification:</strong> 12th </li><li><strong>Research topic:</strong> Nuclear structure investigations in Cd and Pd isotopes</li><li><strong>Email:</strong> as142@snu.edu.in</li></ul></div></article>
+          <article class="surface member-card"><div class="member-photo"><img class="member-photo-idris" src="images/idris.jpg" alt="Idris Khorakiwala"></div><div class="member-body"><h3>Idris Khorakiwala</h3><p class="role">Former B.Sc. Thesis researcher</p><ul class="small-list"><li><strong>Qualification:</strong> B.Sc.</li><li><strong>Current position:</strong> Ph.D. Scholar in Florida State University</li></ul></div></article>
+          <article class="surface member-card"><div class="member-photo"><img class="member-photo-yash" src="images/yash.jpg" alt="Yash Shah"></div><div class="member-body"><h3>Yash Shah</h3><p class="role">Former B.Sc. Thesis researcher</p><ul class="small-list"><li><strong>Qualification:</strong> B.Sc.</li><li><strong>Current position:</strong> Ph.D. Scholar in Florida State University</li></ul></div></article>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-4);">O.U.R. Students</h3>
+        <div class="member-grid content-visible">
+          <article class="surface member-card"><div class="member-photo"><img class="member-photo-nakul" src="images/ankit.jpg" alt="Nakul B."></div><div class="member-body"><h3>Nakul B.</h3><p class="role">O.U.R.</p><ul class="small-list"><li><strong>Qualification:</strong> 12th</li><li><strong>Research topic:</strong> Characterisation of archeological samples through X-Ray Fluoroscence</li><li><strong>Email:</strong> nb294@snu.edu.in</li></ul></div></article>
+          <article class="surface member-card"><div class="member-photo"><img class="member-photo-gautam" src="images/gautam.jpg" alt="Gautam Kavali"></div><div class="member-body"><h3>Gautam Kavali</h3><p class="role">Former O.U.R.</p><ul class="small-list"><li><strong>Qualification:</strong> 12th</li><li><strong>Current position:</strong> B.Sc. student</li></ul></div></article>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -110,7 +130,7 @@
             <li><a href="./research.html">Research areas</a></li>
             <li><a href="./publications.html">Publications</a></li>
             <li><a href="./laboratory.html">Laboratory facilities</a></li>
-            <li><a href="./collaborations.html">Collaborations</a></li>
+            <!-- <li><a href="./collaborations.html">Collaborations</a></li> -->
           </ul>
         </div>
       

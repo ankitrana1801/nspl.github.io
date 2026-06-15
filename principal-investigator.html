@@ -12,7 +12,7 @@
   <div class="site-shell">
     <header class="site-header">
       <div class="container-wide header-row">
-        <a class="brand" href="./home.html" aria-label="Nuclear Structure Physics Laboratory home">
+        <a class="brand" href="./index.html" aria-label="Nuclear Structure Physics Laboratory home">
           <div class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 64 64" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5">
               <circle cx="32" cy="32" r="8"></circle>
@@ -27,13 +27,13 @@
         </a>
         <div class="nav-wrap">
           <nav class="site-nav" data-site-nav aria-label="Primary navigation">
-            <a href="./home.html" >Home</a>
+            <a href="./index.html" >Home</a>
             <a href="./principal-investigator.html" aria-current="page">Principal Investigator</a>
             <a href="./group-members.html" >Group Members</a>
             <a href="./publications.html" >Publications</a>
             <a href="./laboratory.html" >Laboratory</a>
             <a href="./research.html" >Research</a>
-            <a href="./collaborations.html" >Collaborations</a>
+            <!-- <a href="./collaborations.html" >Collaborations</a> -->
           </nav>
           <button class="menu-toggle" type="button" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -62,7 +62,7 @@
 <section class="section-tight">
   <div class="container split-layout content-visible">
     <aside class="surface profile-card">
-      <div class="profile-photo">
+      <div class="profile-photo principal-photo">
         <div class="photo-placeholder" role="img" aria-label="Placeholder for principal investigator photograph">
           <div class="member-photo"><img src="images/skt.webp" alt="P.I."></div>
         </div>
@@ -219,9 +219,24 @@
 
     <footer class="site-footer">
       <div class="container-wide footer-grid">
-        <div>
-          <h2 class="page-title" style="font-size: var(--text-xl); margin-bottom: var(--space-3);">Contact</h2>
-          <p>Official website template for the Nuclear Structure Physics Laboratory. Replace all placeholders with validated institutional content, photographs, and approved branding.</p>
+        <div class="footer-address">
+          <div class="footer-address-logo" aria-hidden="true">
+            <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4">
+              <circle cx="60" cy="60" r="10"></circle>
+              <ellipse cx="60" cy="60" rx="38" ry="16"></ellipse>
+              <ellipse cx="60" cy="60" rx="38" ry="16" transform="rotate(60 60 60)"></ellipse>
+              <ellipse cx="60" cy="60" rx="38" ry="16" transform="rotate(-60 60 60)"></ellipse>
+            </svg>
+          </div>
+          <div>
+            <h2 class="page-title" style="font-size: var(--text-xl); margin-bottom: var(--space-3);">Address</h2>
+            <p>Nuclear Structure Physics Laboratory</p>
+            <p>Department of Physics, School of Natural Sciences</p>
+            <p>Shiv Nadar Institution of Eminence</p>
+            <p>Delhi-NCR</p>
+            <p>Ext: 6936</p>
+            <p><a href="mailto:sujit.tandel@snu.edu.in">sujit.tandel@snu.edu.in </a></p>
+          </div>
         </div>
         <div>
           <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-3);">Quick links</h3>
@@ -229,19 +244,11 @@
             <li><a href="./research.html">Research areas</a></li>
             <li><a href="./publications.html">Publications</a></li>
             <li><a href="./laboratory.html">Laboratory facilities</a></li>
-            <li><a href="./collaborations.html">Collaborations</a></li>
+            <!-- <li><a href="./collaborations.html">Collaborations</a></li> -->
           </ul>
         </div>
-        <div>
-          <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-3);">Email</h3>
-          <ul>
-            <li><a href="mailto:lab@example.edu">lab@example.edu</a></li>
-            <li><a href="mailto:pi@example.edu">pi@example.edu</a></li>
-            <li>Greater Noida / Delhi NCR, India</li>
-          </ul>
-        </div>
+    
       </div>
-      <div class="container-wide footer-note">Built as a responsive static website structure so content can be updated later with minimal code changes.</div>
     </footer>
   </div>
   <script src="script.js" defer></script>
